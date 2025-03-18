@@ -1,26 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="header">
-      <img
-        className="logo"
-        src="https://static.vecteezy.com/system/resources/previews/047/171/152/non_2x/logo-design-for-restaurant-and-food-company-vector.jpg"
-      />
-      <div className="navlist">
-        <ul>
-          <li>Home</li>
-          <li>about</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const restaurants = [
+export const restaurants = [
   {
     info: {
       id: "254108",
@@ -31,9 +9,9 @@ const restaurants = [
       areaName: "Sector 22",
       costForTwo: "₹400 for two",
       cuisines: ["American", "Fast Food"],
-      avgRating: 4.3,
+      avgRating: 3.3,
       parentId: "630",
-      avgRatingString: "4.3",
+      avgRatingString: "3.3",
       totalRatingsString: "14K+",
       sla: {
         deliveryTime: 23,
@@ -1055,52 +1033,3 @@ const restaurants = [
     },
   },
 ];
-const imglink =
-  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/";
-
-const Resturantcard = ({ resdetails }) => {
-  const {
-    id,
-    name,
-    cloudinaryImageId,
-    costForTwo,
-    cuisines,
-    avgRating,
-    areaName,
-    locality,
-  } = resdetails.info;
-  return (
-    <div className="res-card">
-      <img className="res-logo" src={imglink + cloudinaryImageId} />
-
-      <h4>{name}</h4>
-      <h5 className="cuisines">{cuisines.join(",")}</h5>
-      <h5>{locality == areaName ? locality : locality + "," + areaName}</h5>
-      <h5>{costForTwo}</h5>
-      <h5>{avgRating} stars</h5>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body-container">
-      <div className="search-container">search</div>
-      <div className="res-container">
-        {restaurants.map((items) => {
-          return <Resturantcard key={items.info.id} resdetails={items} />;
-        })}
-      </div>
-    </div>
-  );
-};
-function App() {
-  return (
-    <div className="applayout">
-      <Header />
-      <Body />
-    </div>
-  );
-}
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
