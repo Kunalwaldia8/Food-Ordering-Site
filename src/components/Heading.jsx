@@ -2,8 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Heading = () => {
+  //subscribing to the store using selector hook
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   const [log, setlog] = useState("Login");
   return (
     <div className="w-full top-0 justify-between flex fixed z-10 bg-white shadow-md">
@@ -20,6 +24,9 @@ const Heading = () => {
           </li>
           <li className="rounded-2xl hover:bg-red-700 hover:font-medium hover:text-white px-2 py-2">
             <Link to="/ContactUs">Contact Us</Link>
+          </li>
+          <li className="rounded-2xl hover:bg-red-700 hover:font-medium hover:text-white px-2 py-2">
+            Cart-({cartItems.length} item)
           </li>
           <li className="rounded-2xl hover:bg-red-700 hover:font-medium hover:text-white px-2 py-2">
             <button
