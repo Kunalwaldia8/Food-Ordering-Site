@@ -11,6 +11,7 @@ import { lazy } from "react";
 import ShimmerUI from "./src/components/ShimmerUI";
 import { Provider } from "react-redux";
 import appStore from "./src/utils/appStore";
+import { CartItems } from "./src/components/CartItems";
 
 const AboutUs = lazy(() =>
   import("./src/components/AboutUs").then((module) => ({
@@ -27,11 +28,13 @@ function App() {
   if (onlineStatus === false) {
     return (
       <>
-        <Header></Header>
-        <h1 className="my-40 mx-4 text-2xl font-bold">
-          NO Internet connection
-        </h1>
-        ;
+        <Provider store={appStore}>
+          <Header></Header>
+          <h1 className="my-40 mx-4 text-2xl font-bold">
+            NO Internet connection
+          </h1>
+          ;
+        </Provider>
       </>
     );
   }
@@ -67,6 +70,10 @@ const router = createBrowserRouter([
             <AboutUs />
           </Suspense>
         ),
+      },
+      {
+        path: "/CartItems",
+        element: <CartItems />,
       },
       {
         path: "/ContactUs",
