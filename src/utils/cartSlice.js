@@ -4,18 +4,25 @@ import { createSlice } from "@reduxjs/toolkit";
 export const cartSlice = createSlice({
   name: "cart", //name of the cart
   initialState: {
-    items: ["burger "], //one of our cart storage
+    items: [], //one of our cart storage
   },
   reducers: {
     //reducer functions for state mutation
     addItem: (state, action) => {
-      //we get state,action in callback for mutation
-      state.items.push(action.payload); //state contains all the state items
+      ~(
+        //we get state,action in callback for mutation
+        state.items.push(action.payload)
+      ); //state contains all the state items
     },
-    removeItem: (state) => {
-      state.items.pop();
+    removeItem: (state, action) => {
+      for (let i = 0; i < state.items.length; i++) {
+        if (state.items[i].card.info.id == action.payload.card.info.id) {
+          state.items.splice(i, 1);
+          break;
+        }
+      }
     },
-    clearItem: () => {
+    clearItem: (state) => {
       state.items.length = 0;
     },
   },

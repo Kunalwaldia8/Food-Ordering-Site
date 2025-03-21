@@ -15,7 +15,7 @@ const Heading = () => {
         <img className="w-28 h-20 p-1 rounded-full" src={LOGO_URL} />
       </Link>
       <div className="flex items-center justify-between ">
-        <ul class=" mx-8 my-2  w-lg flex  items-center justify-end p-1">
+        <ul className=" mx-8 my-2  w-lg flex  items-center justify-end p-1">
           <li className="rounded-2xl hover:bg-red-700 hover:font-medium hover:text-white px-2 py-2">
             <Link to="/">Home</Link>
           </li>
@@ -26,7 +26,7 @@ const Heading = () => {
             <Link to="/ContactUs">Contact Us</Link>
           </li>
           <li className="rounded-2xl hover:bg-red-700 hover:font-medium hover:text-white px-2 py-2">
-            Cart-({cartItems.length} item)
+            <Link to={"/CartItems"}>Cart-({cartItems.length} item)</Link>
           </li>
           <li className="rounded-2xl hover:bg-red-700 hover:font-medium hover:text-white px-2 py-2">
             <button
