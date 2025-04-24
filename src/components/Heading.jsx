@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const Heading = () => {
   //subscribing to the store using selector hook
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+
   const [log, setlog] = useState("Login");
   return (
     <div className="w-full top-0 justify-between flex fixed z-10 bg-white shadow-md">

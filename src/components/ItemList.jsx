@@ -6,7 +6,7 @@ export const ItemList = ({ items, index, visibleRemove }) => {
   const handleItems = (items, action) => {
     action == "add" ? dispatch(addItem(items)) : dispatch(removeItem(items));
   };
-  console.log(visibleRemove);
+
   const { name, defaultPrice, price, description, imageId } = items?.card?.info;
 
   return (

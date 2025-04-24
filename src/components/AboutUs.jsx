@@ -11,7 +11,7 @@ export const AboutUs = () => {
 
 export const ErrorPage = () => {
   const error = useRouteError();
-  console.log(error);
+
   return (
     <div>
       <h1>

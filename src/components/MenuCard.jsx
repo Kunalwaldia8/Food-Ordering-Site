@@ -21,7 +21,6 @@ export const MenuCard = ({ Menu, showIndexFunction, index }) => {
       <div>
         {index &&
           itemCards.map((items, index) => {
-            // console.log(items);
             return (
               <ItemList
                 items={items}

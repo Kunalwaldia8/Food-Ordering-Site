@@ -9,7 +9,7 @@ export const CartItems = () => {
   const handleClear = () => {
     dispatch(clearItem());
   };
-  //   console.log(cartItems);
+
   return cartItems.length == 0 ? (
     <h1 className="mx-auto w-2/12 font-bold text-4xl">Cart Empty</h1>
   ) : (
